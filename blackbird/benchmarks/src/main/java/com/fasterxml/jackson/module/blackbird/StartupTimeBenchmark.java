@@ -1,5 +1,6 @@
 package com.fasterxml.jackson.module.blackbird;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +50,7 @@ public class StartupTimeBenchmark {
 
     private static byte[] singleShot(ObjectMapper mapper) throws JsonProcessingException {
         final Random random = new Random();
-        return mapper.writeValueAsBytes(List.of(
+        return mapper.writeValueAsBytes(Arrays.asList(
                 SomeBean.random(random),
                 new ClassicBean().setUp(),
                 new BeanWithPropertyConstructor(42, "foo", 8675309, SomeBean.random(random), SomeEnum.EB)));
